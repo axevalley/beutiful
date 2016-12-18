@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BE-Utiful</title>
+    <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/beutiful.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {% block additional_head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+        {% include 'beutifulhome/nav.html' %}
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="footer">
+            <p><a href="mailto:luke@lukeshiner.com">&copy;Luke Shiner {% now "Y" %}</a></p>
+            <div class="contact">
+                <p>Tel: <a href="tel:000-000-000">000-000-000</a></p>
+                <p>Email: <a href="mailto:info@beutiful.co.uk">info@beutiful.co.uk</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
