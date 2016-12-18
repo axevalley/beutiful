@@ -162,12 +162,14 @@ article.shoplink a p {
 }
 
 .site_title {
+	font-family: 'Calligraffitti', cursive;
 	font-size: 3em;
 	margin: 0 auto;
 	width: 50%;
 }
 
 .site_sub_title {
+	font-family: 'Calligraffitti', cursive;
 	margin: 0 auto;
 	width: 50%;
 	text-decoration: underline;
