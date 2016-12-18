@@ -29,5 +29,11 @@
             </div>
         </div>
     </div>
+    <script>
+        $(window).on("load", function() {
+            var footerHeight = $('.footer').css('height');
+            $('.content').css('padding-bottom', footerHeight);
+        });
+    </script>
 </body>
 </html>
