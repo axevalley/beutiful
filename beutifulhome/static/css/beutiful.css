@@ -59,6 +59,8 @@ article {
 	border: solid 3px var(--colour_4);
 	border-radius: 1em;
 	text-align: left;
+	margin-bottom: 1em;
+	margin-top: 1em;
 }
 
 article.shoplink {
@@ -78,7 +80,7 @@ article.shoplink a p {
 
 .shoplink_image {
 	width: 100%;
-	height: 80%;
+	height: 60%;
 	background-size: contain;
 	margin: 0 auto;
 	background-repeat: no-repeat;
@@ -97,6 +99,7 @@ article.shoplink a p {
     left: 0; /* IE 7 and below */
     font-size: 0.75em;
     font-family: serif;
+	vertical-align: middle;
 }
 
 .footer .contact {
@@ -114,6 +117,11 @@ article.shoplink a p {
 
 .footer a:hover {
 	color: #fff;
+}
+
+.footer img {
+	margin: 0 auto;
+	vertical-align: middle;
 }
 
 .navigation {
@@ -173,6 +181,13 @@ article.shoplink a p {
 	margin: 0 auto;
 	width: 50%;
 	text-decoration: underline;
+}
+
+.signature {
+	font-size: 1.2em;
+	font-family: 'Calligraffitti', cursive;
+	text-indent: 3em;
+	line-height: 2em;
 }
 
 @media only screen and (max-width: 720px) {

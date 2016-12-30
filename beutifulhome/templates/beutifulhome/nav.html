@@ -10,8 +10,13 @@
     <h1 class="site_title">BE&nbsp;-&nbsp;<object data="{{ STATIC_URL }}images/beutiful_heart.svg" type="image/svg+xml" width="25"></object>&nbsp;-&nbsp;tiful</h1>
     <h2 class="site_sub_title">Style &amp; Well-being just for you</h2>
     <div class="navigation">
-        <li class="navitem" id="selected"><a href="">Welcome</a></li>
-        <li class="navitem"><a href="">About Me</a></li>
-        <li class="navitem"><a href="">Services</a></li>
+        {% url 'beutifulhome:index' as url %}
+        <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Welcome</a></li>
+        {% url 'beutifulhome:about' as url %}
+        <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">About Me</a></li>
+        {% url 'beutifulhome:services' as url %}
+        <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Services</a></li>
+        {% url 'beutifulhome:contact' as url %}
+        <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Contact</a></li>
     </div>
 </div>
