@@ -19,5 +19,9 @@ def services(request):
     return render(request, 'beutifulhome/services.html')
 
 
+def friends(request):
+    return render(request, 'beutifulhome/friends.html')
+
+
 def contact(request):
     return render(request, 'beutifulhome/contact.html')

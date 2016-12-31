@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^products/$', views.products, name='products'),
     url(r'^services/$', views.services, name='services'),
+    url(r'^friends/$', views.friends, name='friends'),
     url(r'^contact/$', views.contact, name='contact'),
 ]

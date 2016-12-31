@@ -18,6 +18,8 @@
         <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Products</a></li>
         {% url 'beutifulhome:services' as url %}
         <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Services</a></li>
+        {% url 'beutifulhome:friends' as url %}
+        <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Friends Of</a></li>
         {% url 'beutifulhome:contact' as url %}
         <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Contact</a></li>
     </div>
