@@ -69,6 +69,7 @@ article.shoplink {
 	display: inline-block;
 	margin: 1em;
 	text-align: center;
+	vertical-align: top;
 }
 
 article.shoplink a p {
