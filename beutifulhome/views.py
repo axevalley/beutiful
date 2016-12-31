@@ -11,6 +11,10 @@ def about(request):
     return render(request, 'beutifulhome/about.html')
 
 
+def products(request):
+    return render(request, 'beutifulhome/products.html')
+
+
 def services(request):
     return render(request, 'beutifulhome/services.html')
 
