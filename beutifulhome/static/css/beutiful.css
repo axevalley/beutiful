@@ -125,13 +125,20 @@ article.shoplink a p {
 	vertical-align: middle;
 }
 
+.title_logo {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
 .navigation {
     text-align: center;
     white-space: nowrap;
     vertical-align: bottom;
 	margin: 0 auto;
-	width: 50%;
-	margin-top: 1em;
+	display: inline-block;
+	float: left;
+	width: 100%;
 }
 
 .nav_container {
@@ -142,6 +149,7 @@ article.shoplink a p {
 }
 
 .navitem {
+	margin: 0 auto;
     font-family: 'Calligraffitti', cursive;
 	font-size: 1.25em;
     padding: 0.75em;
@@ -165,14 +173,14 @@ article.shoplink a p {
 }
 
 .logo {
-	display: inline-block;
+
 	float: left;
 	margin: 1em;
 }
 
 .site_title {
 	font-family: 'Calligraffitti', cursive;
-	font-size: 3em;
+	font-size: 4em;
 	margin: 0 auto;
 	width: 50%;
 }
@@ -198,8 +206,16 @@ article.shoplink a p {
 
 	.navigation {
 	    text-align: center;
-		width: auto;
-		margin: 1em !important;
+		width: 100%;
+	}
+
+	.navitem {
+		display: block;
+		width: 100%;
+	    padding: 0.25em;
+	    border-radius: 0;
+		border-width: 1px 0 1px 0;
+		border-collapse: collapse;
 	}
 
 	.nav_container {

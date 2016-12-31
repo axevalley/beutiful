@@ -1,14 +1,15 @@
-<div class="nav_container">
-    <div class="logo">
-        <a href="/">
-            <object data="{{ STATIC_URL }}images/beutiful_logo.svg" type="image/svg+xml" width="150">
-                <img src="yourfallback.jpg" />
-            </object>
-        </a>
-
+    <div class="title_logo">
+        <div class="nav_container">
+            <div class="logo">
+                <a href="/">
+                    <object data="{{ STATIC_URL }}images/beutiful_logo.svg" type="image/svg+xml" width="170">
+                        <img src="yourfallback.jpg" />
+                    </object>
+                </a>
+            </div>
+            <h1 class="site_title">BE&nbsp;-&nbsp;<object data="{{ STATIC_URL }}images/beutiful_heart.svg" type="image/svg+xml" width="25"></object>&nbsp;-&nbsp;tiful</h1>
+            <h2 class="site_sub_title">Style &amp; Well-being just for you</h2>
     </div>
-    <h1 class="site_title">BE&nbsp;-&nbsp;<object data="{{ STATIC_URL }}images/beutiful_heart.svg" type="image/svg+xml" width="25"></object>&nbsp;-&nbsp;tiful</h1>
-    <h2 class="site_sub_title">Style &amp; Well-being just for you</h2>
     <div class="navigation">
         {% url 'beutifulhome:index' as url %}
         <li class="navitem" {% if url == request.get_full_path %}id="selected"{% endif %}><a href="{{ url }}">Welcome</a></li>
