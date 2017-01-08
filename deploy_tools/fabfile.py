@@ -11,6 +11,7 @@ def deploy():
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
     _update_settings(source_folder, env.host)
+    _add_local_settings(source_folder)
     _update_virtualenv(source_folder)
     _update_static_files(source_folder)
     _update_database(source_folder)
@@ -42,6 +43,34 @@ def _update_settings(source_folder, site_name):
         key = ''.join([random.SystemRandom().choice(chars) for _ in range(50)])
         append(secret_key_file, "SECRET_KEY = '{}'".format(key,))
     append(settings_path, '\nfrom . secret_key import SECRET_KEY')
+
+
+def _add_local_settings(source_folder):
+    local_settings_file = source_folder + '/beutiful/local_settings.py'
+    if not exists(local_settings_file):
+        host = input('Database Host: ')
+        name = input('Database Name: ')
+        test_name = input('Test Database Name: ')
+        user = input('Database User: ')
+        password = input('Database Password: ')
+
+        append(local_settings_file, 'DATABASES = {')
+        append(local_settings_file, "    'default': {")
+        append(
+            local_settings_file,
+            "        'ENGINE': 'django.db.backends.postgresql',")
+        append(local_settings_file, "        'HOST': '{}',".format(host))
+        append(local_settings_file, "        'NAME': '{}',".format(name))
+        append(
+            local_settings_file,
+            "        'TEST_NAME': '{}',".format(test_name))
+        append(local_settings_file, "        'USER': '{}',".format(user))
+        append(
+            local_settings_file,
+            "        'PASSWORD': '{}',".format(password))
+        append(local_settings_file, "        'PORT': '5432',")
+        append(local_settings_file, '    }')
+        append(local_settings_file, '}')
 
 
 def _update_virtualenv(source_folder):
