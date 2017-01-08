@@ -117,4 +117,6 @@ MEDIA_ROOT = os.path.join(os.path.abspath(
 
 DEBUG = True
 
+ALLOWED_HOSTS = []
+
 from . local_settings import *
