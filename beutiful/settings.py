@@ -109,11 +109,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(
-    os.path.abspath(os.path.dirname(BASE_DIR)), 'public', 'static')
+    os.path.abspath(os.path.dirname(BASE_DIR)), 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.abspath(
-    os.path.dirname(BASE_DIR)), 'public', 'media')
+    os.path.dirname(BASE_DIR)), 'media')
 
 DEBUG = True
 
