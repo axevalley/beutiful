@@ -115,8 +115,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.abspath(
     os.path.dirname(BASE_DIR)), 'public', 'media')
 
+DEBUG = True
 
-try:
-    from . local_settings import *
-except:
-    pass
+from . local_settings import *
