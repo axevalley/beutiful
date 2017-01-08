@@ -7,7 +7,7 @@ User=lseagle
 WorkingDirectory=/home/lseagle/sites/SITENAME/source
 ExecStart=/home/lseagle/sites/SITENAME/virtualenv/bin/gunicorn \
     --bind unix:/tmp/SITENAME.socket \
-    superlists.wsgi:application
-    
+    beutiful.wsgi:application
+
 [Install]
 WantedBy=multi-user.target
