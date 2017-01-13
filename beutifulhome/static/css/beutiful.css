@@ -200,6 +200,10 @@ article.shoplink a p {
 	line-height: 2em;
 }
 
+.spaced li {
+	margin-top: 1em;
+}
+
 @media only screen and (max-width: 720px) {
 	.logo {
 		float: none !important;
