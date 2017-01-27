@@ -2,7 +2,12 @@
 
 @font-face {
 	font-family: calligraffitti;
-	src: url('https://fonts.googleapis.com/css?family=Calligraffitti');
+	/*src: url('https://fonts.googleapis.com/css?family=Calligraffitti');*/
+}
+
+@font-face {
+	font-family: PTsans, sans-serif;
+	src: url('https://fonts.googleapis.com/css?family=PT+Sans');
 }
 
 :root{
@@ -22,7 +27,7 @@ html, body {
 }
 
 body {
-    font-family: bretan;
+	font-family: 'PTsans', sans-serif;
     text-align: left;
 }
 
@@ -48,7 +53,6 @@ body {
     text-align: center;
     min-height: 100%;
 	background: var(--colour_1);
-	font-family: sans-serif;
 }
 
 article {
@@ -202,6 +206,37 @@ article.shoplink a p {
 
 .spaced li {
 	margin-top: 1em;
+}
+
+.contact_form th {
+	text-align: center;
+}
+
+.contact_form td, .contact_form th {
+	padding: 0.5em;
+	vertical-align: top;
+}
+
+.contact_form input, .contact_form textarea {
+	padding: 1em;
+	border-radius: 1em;
+	border: 2px solid #555;
+	width: 100%;
+}
+
+.contact_form button {
+	padding: 1em;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+}
+
+.half_width_content {
+	display: inline-block;
+	width: 40%;
+	height: 100%;
+	margin: 1em;
+	vertical-align: top;
 }
 
 @media only screen and (max-width: 720px) {

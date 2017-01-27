@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+
+from . forms import ContactForm
 
 
 def index(request):
@@ -24,4 +27,10 @@ def friends(request):
 
 
 def contact(request):
-    return render(request, 'beutifulhome/contact.html')
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(data=request.POST)
+        if form.is_valid():
+            form = ContactForm()
+            pass  # sendmail
+    return render(request, 'beutifulhome/contact.html', {'form': form})

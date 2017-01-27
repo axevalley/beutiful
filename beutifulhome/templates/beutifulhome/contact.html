@@ -1,7 +1,7 @@
 {% extends "beutifulhome/base.html" %}
 
 {% block content %}
-<article class="page_content">
+<article class="half_width_content">
     <h2>Contact</h2>
     <p>Query on a product or order: <a href="mailto:sales@beutiful.co.uk">sales@beutiful.co.uk</a></p>
     <p>Fancy a chat or looking for more information: <a href="mailto:contact@beutiful.co.uk">contact@beutiful.co.uk</a></p>
@@ -11,4 +11,30 @@
         live videos, offers and much more: <a href="http://www.facebook.com/beutifulxx">facebook.com/beutifulxx</a>
     </p>
 </article>
+<article class="half_width_content">
+    <form action="{% url 'beutifulhome:contact' %}" method="POST" class="contact_form">
+        {% if form.errors %}
+            <div class="contact_form_errors">
+                <div class="contact_form_error">{{ form.text.error }}</div>
+            </div>
+        {% endif %}
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+            <tr><td colspan="2"><button type="submit">Send</button></td></tr>
+        </table>
+    </form>
+</article>
+<script>
+    $( document ).ready(function() {
+        var content_height = 0;
+        $('.half_width_content').each(function () {
+            if ($(this).height() > content_height) {
+                content_height = $(this).height();
+            }
+        });
+        console.log(content_height);
+        $('.half_width_content').height(content_height);
+    });
+</script>
 {% endblock %}

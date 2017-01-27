@@ -26,10 +26,6 @@ class ContactFormTest(TestCase):
         form = ContactForm()
         self.assertIn('placeholder="Your message"', form.as_p())
 
-    def test_form_renders_submit_button(self):
-        form = ContactForm()
-        self.assertIn('value="Send"', form.as_p())
-
     def test_form_validation_for_missing_email(self):
         form = ContactForm(data={
             'return_email': '', 'contact_name': 'Philip Jones',
