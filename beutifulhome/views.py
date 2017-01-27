@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from beutiful import settings
 
 from . forms import ContactForm
 
@@ -31,6 +32,13 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
         if form.is_valid():
+            data = form.cleaned_data
+            email = EmailMessage(
+                data['message_subject'],
+                data['message_content'],
+                settings.EMAIL_HOST_USER,
+                ['axevalley@hotmail.co.uk'],
+                reply_to=[data['return_email']])
+            email.send(fail_silently=False)
             form = ContactForm()
-            pass  # sendmail
     return render(request, 'beutifulhome/contact.html', {'form': form})
