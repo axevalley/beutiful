@@ -65,7 +65,7 @@ class ContactFormTest(TestCase):
             'message_type': 'Query', 'message_content': 'Hello message'})
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors['contact_name'], [NO_SUBJECT_MESSAGE])
+            form.errors['message_subject'], [NO_SUBJECT_MESSAGE])
 
     def test_form_validation_for_missing_message_type(self):
         form = ContactForm(data={
@@ -74,7 +74,7 @@ class ContactFormTest(TestCase):
             'message_type': '', 'message_content': 'Hello message'})
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors['contact_name'], [NO_TYPE_MESSAGE])
+            form.errors['message_type'], [NO_TYPE_MESSAGE])
 
     def test_form_validation_for_missing_content(self):
         form = ContactForm(data={
@@ -83,4 +83,4 @@ class ContactFormTest(TestCase):
             'message_type': 'Query', 'message_content': ''})
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors['contact_name'], [NO_CONTENT_MESSAGE])
+            form.errors['message_content'], [NO_CONTENT_MESSAGE])
