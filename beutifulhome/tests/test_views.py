@@ -22,6 +22,15 @@ class ContactPageTest(TestCase):
         response = self.client.get('/contact/')
         self.assertTemplateUsed(response, 'beutifulhome/contact.html')
 
+    def test_displays_contact_form(self):
+        response = self.client.get('/contact/')
+        self.assertIsInstance(response.context['form'], ContactForm)
+        self.assertContains(response, 'name="return_email"')
+        self.assertContains(response, 'name="contact_name"')
+        self.assertContains(response, 'name="message_subject"')
+        self.assertContains(response, 'name="message_type"')
+        self.assertContains(response, 'name="message_content"')
+
 
 class FriendsPageTest(TestCase):
 
