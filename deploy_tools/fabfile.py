@@ -1,5 +1,6 @@
 from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
+from fabric.operations import sudo
 import random
 
 REPO_URL = 'https://github.com/axevalley/beutiful.git'
@@ -15,6 +16,7 @@ def deploy():
     _update_virtualenv(source_folder)
     _update_static_files(source_folder)
     _update_database(source_folder)
+    _restart_server(env.host)
 
 
 def _create_directory_structure_if_necessary(site_folder):
@@ -48,29 +50,41 @@ def _update_settings(source_folder, site_name):
 def _add_local_settings(source_folder):
     local_settings_file = source_folder + '/beutiful/local_settings.py'
     if not exists(local_settings_file):
-        host = input('Database Host: ')
-        name = input('Database Name: ')
-        test_name = input('Test Database Name: ')
-        user = input('Database User: ')
-        password = input('Database Password: ')
+        db_host = input('Database Host: ')
+        db_name = input('Database Name: ')
+        db_test_name = input('Test Database Name: ')
+        db_user = input('Database User: ')
+        db_password = input('Database Password: ')
+        email_host = input('Email Host: ')
+        email_user = input('Email User: ')
+        email_password = input('Email Password: ')
+        email_port = input('Email Port: ')
 
         append(local_settings_file, 'DATABASES = {')
         append(local_settings_file, "    'default': {")
         append(
             local_settings_file,
             "        'ENGINE': 'django.db.backends.postgresql',")
-        append(local_settings_file, "        'HOST': '{}',".format(host))
-        append(local_settings_file, "        'NAME': '{}',".format(name))
+        append(local_settings_file, "        'HOST': '{}',".format(db_host))
+        append(local_settings_file, "        'NAME': '{}',".format(db_name))
         append(
             local_settings_file,
-            "        'TEST_NAME': '{}',".format(test_name))
-        append(local_settings_file, "        'USER': '{}',".format(user))
+            "        'TEST_NAME': '{}',".format(db_test_name))
+        append(local_settings_file, "        'USER': '{}',".format(db_user))
         append(
             local_settings_file,
-            "        'PASSWORD': '{}',".format(password))
+            "        'PASSWORD': '{}',".format(db_password))
         append(local_settings_file, "        'PORT': '5432',")
         append(local_settings_file, '    }')
         append(local_settings_file, '}')
+        append(local_settings_file, 'DEBUG = False')
+        append(local_settings_file, "EMAIL_HOST = '{}'".format(email_host))
+        append(local_settings_file, "EMAIL_HOST_USER = '{}'".format(
+            email_user))
+        append(local_settings_file, "EMAIL_HOST_PASSWORD = '{}'".format(
+            email_password))
+        append(local_settings_file, "EMAIL_PORT = '{}'".format(email_port))
+        append(local_settings_file, "EMAIL_USE_TLS = True")
 
 
 def _update_virtualenv(source_folder):
@@ -91,3 +105,7 @@ def _update_database(source_folder):
     run(
         'cd {} && ../virtualenv/bin/python manage.py migrate \
         --noinput'.format(source_folder))
+
+
+def _restart_server(project_name):
+    sudo("systemctl restart gunicorn-{}".format(project_name))
