@@ -15,8 +15,8 @@ class TestContactForm(FunctionalTest):
     def get_subject_input_box(self):
         return self.get_input_box('message_subject')
 
-    def get_type_input_box(self):
-        return self.get_input_box('message_type')
+    def get_phone_input_box(self):
+        return self.get_input_box('contact_phone')
 
     def get_content_input_box(self):
         return self.get_input_box('message_content')
