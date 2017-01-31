@@ -13,7 +13,7 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('BE-U-tiful', self.browser.title)
 
     def test_index(self):
-        self.check_page_header('/', 'Beutiful')
+        self.check_page_header('/', 'BE-U-tiful')
 
     def test_about(self):
         self.check_page_header('/about/', 'About')
