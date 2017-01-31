@@ -263,8 +263,26 @@ article.shoplink a p {
 	list-style-type: circle;
 }
 
-iframe, object, embed{
+iframe, object, embed {
 	max-width: 100%;
+}
+
+.status_message {
+	margin: 0 auto;
+	padding: 1em;
+	border-radius: 1em;
+	border: 2px solid #555;
+	background: white;
+	width: 25%;
+	text-align: center;
+}
+
+.status_message .success {
+	color: green;
+}
+
+.status_message .failed {
+	color: red;
 }
 
 @media only screen and (max-width: 720px) {

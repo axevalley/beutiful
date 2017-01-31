@@ -1,6 +1,16 @@
 {% extends "beutifulhome/base.html" %}
 
 {% block content %}
+{% if status %}
+<div class="status_message">
+    {% if status == 'success' %}
+        <p class="success">Message sent successfully</p>
+    {% elif status == 'failed' %}
+        <p class="failed">Message sending failed!</p>
+        <p class="failed">Try emailing directly: <a href="mailto:contact@beutiful.co.uk">contact@beutiful.co.uk</a></p>
+    {% endif %}
+</div>
+{% endif %}
 <article class="half_width_content">
     <h2>Contact</h2>
     <p>Query on a product or order: <a href="mailto:sales@beutiful.co.uk">sales@beutiful.co.uk</a></p>

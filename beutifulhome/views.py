@@ -29,9 +29,15 @@ def friends(request):
 
 def contact(request):
     form = ContactForm()
+    status = None
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
         if form.is_valid():
-            form.send_mail()
+            try:
+                form.send_mail()
+            except:
+                status = 'failed'
             form = ContactForm()
-    return render(request, 'beutifulhome/contact.html', {'form': form})
+            status = 'success'
+    return render(request, 'beutifulhome/contact.html', {
+        'form': form, 'status': status})
