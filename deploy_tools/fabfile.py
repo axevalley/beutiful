@@ -59,6 +59,7 @@ def _add_local_settings(source_folder):
         email_user = input('Email User: ')
         email_password = input('Email Password: ')
         email_port = input('Email Port: ')
+        contact_form_target_email = input('Contact Form Email: ')
 
         append(local_settings_file, 'DATABASES = {')
         append(local_settings_file, "    'default': {")
@@ -85,6 +86,9 @@ def _add_local_settings(source_folder):
             email_password))
         append(local_settings_file, "EMAIL_PORT = '{}'".format(email_port))
         append(local_settings_file, "EMAIL_USE_TLS = True")
+        append(
+            local_settings_file, "CONTACT_FORM_TARGET_ADDRESS = '{}'".format(
+                contact_form_target_email))
 
 
 def _update_virtualenv(source_folder):

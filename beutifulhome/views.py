@@ -32,13 +32,6 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            email = EmailMessage(
-                data['message_subject'],
-                data['message_content'],
-                settings.EMAIL_HOST_USER,
-                ['axevalley@hotmail.co.uk'],
-                reply_to=[data['return_email']])
-            email.send(fail_silently=False)
+            form.send_mail()
             form = ContactForm()
     return render(request, 'beutifulhome/contact.html', {'form': form})

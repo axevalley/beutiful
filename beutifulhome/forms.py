@@ -1,4 +1,6 @@
 from django import forms
+from django.core.mail import EmailMessage
+from beutiful import settings
 import re
 
 
@@ -48,4 +50,31 @@ class ContactForm(forms.Form):
         number = self.cleaned_data['contact_phone']
         if len(number) > 0 and phone_regex.match(number) is None:
             raise forms.ValidationError(INVALID_PHONE_MESSAGE, code='invalid')
-        return self.cleaned_data
+        return number
+
+    def make_message(self):
+        data = self.cleaned_data
+        message = '\n'.join([
+            'From: {}'.format(data['contact_name']),
+            'eMail: {}'.format(data['return_email']),
+            'Phone: {}'.format(data['contact_phone']),
+            'Message: ',
+            data['message_content']])
+        return message
+
+    def make_email(self):
+        data = self.cleaned_data
+        subject = 'Contact Form message from {} Re: {}'.format(
+            data['contact_name'], data['message_subject'])
+        return_address = data['return_email']
+        message = self.make_message()
+        from_address = settings.EMAIL_HOST_USER
+        to_address = settings.CONTACT_FORM_TARGET_ADDRESS
+        message = EmailMessage(
+            subject, message, from_address, [to_address],
+            reply_to=[return_address])
+        return message
+
+    def send_mail(self):
+        email = self.make_email()
+        email.send(fail_silently=False)
