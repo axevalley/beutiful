@@ -285,6 +285,10 @@ iframe, object, embed {
 	color: red;
 }
 
+.errorlist {
+	color: red;
+}
+
 @media only screen and (max-width: 720px) {
 	.logo {
 		float: none !important;
