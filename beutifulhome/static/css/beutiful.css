@@ -208,6 +208,10 @@ article.shoplink a p {
 	margin-top: 1em;
 }
 
+.contact_form {
+	width: 80%;
+}
+
 .contact_form th {
 	text-align: center;
 }
@@ -259,6 +263,10 @@ article.shoplink a p {
 	list-style-type: circle;
 }
 
+iframe, object, embed{
+	max-width: 100%;
+}
+
 @media only screen and (max-width: 720px) {
 	.logo {
 		float: none !important;
@@ -291,5 +299,20 @@ article.shoplink a p {
 
 	article.shoplink {
 		width: 80%;
+	}
+
+	.half_width_content {
+		display: auto;
+		width: auto;
+		height: auto;
+		margin: 1em;
+		vertical-align: top;
+		width: 80%;
+		overflow: hidden;
+	}
+
+	.map {
+		margin: 0;
+		padding: 0;
 	}
 }

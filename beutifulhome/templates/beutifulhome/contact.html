@@ -46,14 +46,16 @@
 </article>
 <script>
     $( document ).ready(function() {
-        var content_height = 0;
-        $('.half_width_content').each(function () {
-            if ($(this).height() > content_height) {
-                content_height = $(this).height();
-            }
-        });
-        console.log(content_height);
-        $('.half_width_content').height(content_height);
+        if ($(window).width() >= 720) {
+            var content_height = 0;
+            $('.half_width_content').each(function () {
+                if ($(this).height() > content_height) {
+                    content_height = $(this).height();
+                }
+            });
+            console.log(content_height);
+            $('.half_width_content').height(content_height);
+        }
     });
 </script>
 {% endblock %}
