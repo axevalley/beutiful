@@ -237,6 +237,26 @@ article.shoplink a p {
 	height: 100%;
 	margin: 1em;
 	vertical-align: top;
+	overflow: hidden;
+}
+
+.half_width_content::after {
+    content:"";
+    display:table;
+    clear:both;
+}
+
+.map {
+	margin: 1em;
+	text-align: center;
+	clear: both;
+}
+
+.location_list li {
+	float: left;
+	margin-right: 1em;
+	margin-left: 1em;l
+	list-style-type: circle;
 }
 
 @media only screen and (max-width: 720px) {
