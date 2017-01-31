@@ -28,7 +28,7 @@ class ContactPageTest(TestCase):
         self.assertContains(response, 'name="return_email"')
         self.assertContains(response, 'name="contact_name"')
         self.assertContains(response, 'name="message_subject"')
-        self.assertContains(response, 'name="message_type"')
+        self.assertContains(response, 'name="contact_phone"')
         self.assertContains(response, 'name="message_content"')
 
 
