@@ -289,6 +289,11 @@ iframe, object, embed {
 	color: red;
 }
 
+.article_ilustration {
+	float: right;
+	margin: 1em;
+}
+
 @media only screen and (max-width: 720px) {
 	.logo {
 		float: none !important;
